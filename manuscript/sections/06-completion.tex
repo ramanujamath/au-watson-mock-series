@@ -1,0 +1,140 @@
+\section{The completion and its shadow}\label{sec:completion}
+
+Throughout this section $\tau=u+iy\in\HH$ and $q=e^{2\pi i\tau}$; the notation
+is that of \cref{sec:modular,sec:zwegers}. Define the eta quotient
+\[
+A(\tau)=\frac{\eta(\tau)^4}{\eta(2\tau)^3\,\eta(4\tau)^4}
+=q^{-3/4}\frac{J_1^4}{J_2^3J_4^4},
+\]
+and the functions
+\[
+f(\tau)=-\tfrac{i}{2}\,\mu(\tau,\tau;2\tau),\qquad
+\fh(\tau)=-\tfrac{i}{2}\,\muh(\tau,\tau;2\tau)=f(\tau)+\tfrac14R_0(\tau),\qquad
+R_0(\tau)=R(0;2\tau).
+\]
+They have no poles, because $\tau\notin\Lambda_{2\tau}=2\Z\tau+\Z$. Finally put
+\[
+\Sh(\tau)=A(\tau)\fh(\tau)=A(\tau)f(\tau)+\tfrac14A(\tau)R_0(\tau).
+\]
+In this language \cref{thm:completion} states: $S(e^{2\pi i\tau})=Af$; the
+function $\Sh$ transforms like a modular form of weight $-1$ and character
+$\chi_{-4}$ on $\Gamma_0(4)$; and $\xi_{1/2}\fh=-\frac12\eta(2\tau)^3$. In
+the decomposition $S=A\cdot f$, the factor $A$ is a modular form of weight
+$-3/2$ and $f$ is a mock modular form of weight $1/2$ with completion $\fh$.
+
+\begin{proof}[Proof of \cref{thm:completion}]
+\emph{The identity $S=Af$.} Substituting $v=w=\tau$ and $\sigma=2\tau$ in the
+definitions of \cref{sec:zwegers} and re-indexing the sums ($\nu=m+\frac12$ in
+$\vartheta$) gives
+\[
+\vartheta(\tau;2\tau)=-iq^{-1/4}\Theta(q),\qquad
+\mu(\tau,\tau;2\tau)=-\frac{iq^{-1/4}}{\Theta(q)}\,U(q)=\frac{2iq^{3/4}}{\Theta(q)}\,L(q),
+\]
+the last step by \eqref{eq:UL}. Hence $f=q^{3/4}L(q)/\Theta(q)$. With
+$\Theta=J_1^2/J_2$ (\cref{fact:jacobi}) and $\poch{q}{q^2}{\infty}=J_1/J_2$,
+\[
+A f=\frac{J_1^4}{J_2^3J_4^4}\cdot\frac{J_2}{J_1^2}\,L(q)
+=\frac{\poch{q}{q^2}{\infty}^2}{J_4^4}\,L(q)=S(q)
+\]
+by \cref{thm:main}.
+
+\emph{The shadow.} Replace $2\nu$ by the odd integer $\ell$ in the definition of
+$R(0;2\tau)$:
+\[
+R_0(\tau)=\sum_{\ell\in2\Z+1}(-1)^{(\ell-1)/2}\big(\sgn\ell-E(\ell\sqrt y)\big)q^{-\ell^2/4}.
+\]
+The terms decay like a Gaussian in $\ell$ uniformly on compact subsets of
+$\HH$, so the series may be differentiated term by term. Only $E(\ell\sqrt y)$
+depends on $y$, and $\partial_yE(\ell\sqrt y)=\ell y^{-1/2}e^{-\pi\ell^2y}$;
+the holomorphic factor $q^{-\ell^2/4}$ is killed by $\partial_{\bar\tau}$. Since
+$e^{-\pi\ell^2y}q^{-\ell^2/4}=\overline{q^{\ell^2/4}}$, this gives
+\[
+\partial_{\bar\tau}R_0=-\frac{i}{2\sqrt y}\,
+\overline{\sum_{\ell\in2\Z+1}(-1)^{(\ell-1)/2}\ell\,q^{\ell^2/4}} .
+\]
+The terms with $\ell$ and $-\ell$ are equal, so by \cref{fact:jacobi} the sum
+is $2q^{1/4}J_2^3=2\eta(2\tau)^3$. Therefore
+\begin{equation}\label{eq:dR}
+\partial_{\bar\tau}R_0=-\frac{i}{\sqrt y}\,\overline{\eta(2\tau)^3},\qquad
+\partial_{\bar\tau}\fh=\tfrac14\partial_{\bar\tau}R_0,\qquad
+\partial_{\bar\tau}\Sh=-\frac{iA(\tau)}{4\sqrt y}\,\overline{\eta(2\tau)^3},
+\end{equation}
+using that $f$ and $A$ are holomorphic. Applying $\xi_{1/2}=2iy^{1/2}\overline{\partial_{\bar\tau}(\cdot)}$
+to the middle identity gives $\xi_{1/2}\fh=-\frac12\eta(2\tau)^3$. Since this is
+holomorphic, $\Delta_{1/2}\fh=-\xi_{3/2}\xi_{1/2}\fh=0$, so $\fh$ is harmonic.
+
+\emph{The transformation law.} Let $\gamma=\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right)\in\Gamma_0(2)$
+and put $\gamma'=\left(\begin{smallmatrix}a&2b\\c/2&d\end{smallmatrix}\right)\in\mathrm{SL}_2(\Z)$,
+so that $\gamma'(2\tau)=2\gamma\tau$ and $\frac c2(2\tau)+d=c\tau+d$. Apply
+\cref{fact:zwegers}(b) with $\sigma=2\tau$, the matrix $\gamma'$, and
+$w=a\tau+b$; then $w/(c\tau+d)=\gamma\tau$ and
+\[
+\muh(\gamma\tau,\gamma\tau;2\gamma\tau)=\nu_\eta(\gamma')^{-3}(c\tau+d)^{1/2}
+\muh(a\tau+b,a\tau+b;2\tau).
+\]
+Since $a$ is odd, $a\tau+b=\tau+\frac{a-1}{2}(2\tau)+b$ differs from $\tau$ by an
+element of $\Lambda_{2\tau}$, so by \cref{fact:zwegers}(a) the last factor is
+$\muh(\tau,\tau;2\tau)$. On the other hand
+$\eta(2\gamma\tau)^3=\eta(\gamma'(2\tau))^3=\nu_\eta(\gamma')^3(c\tau+d)^{3/2}\eta(2\tau)^3$.
+Hence
+\[
+K(\tau)=\eta(2\tau)^3\,\muh(\tau,\tau;2\tau)
+\]
+satisfies $K(\gamma\tau)=(c\tau+d)^2K(\tau)$ for all $\gamma\in\Gamma_0(2)$:
+it has weight $2$ and trivial character on $\Gamma_0(2)$.
+
+Now let
+\[
+g(\tau)=\frac{\eta(\tau)^4}{\eta(2\tau)^6\,\eta(4\tau)^4},
+\]
+so that $A=g\,\eta(2\tau)^3$ and $\Sh=-\frac i2\,g\,K$. The exponents
+$r_1=4$, $r_2=-6$, $r_4=-4$ satisfy $\sum_\delta\delta r_\delta=-24$ and
+$\sum_\delta(4/\delta)r_\delta=0$, and $\frac12\sum_\delta r_\delta=-3$; also
+$s=\prod\delta^{r_\delta}=2^{-14}$, so $\big(\frac{(-1)^{-3}s}{d}\big)=\big(\frac{-1}{d}\big)=\chi_{-4}(d)$.
+By \cref{fact:etaquot}, $g$ has weight $-3$ and character $\chi_{-4}$ on
+$\Gamma_0(4)$. (If one prefers to apply the criterion only to eta products with
+nonnegative exponents, write $g=\eta(\tau)^4\eta(2\tau)^{18}\eta(4\tau)^{20}/(\eta(2\tau)^{24}\eta(4\tau)^{24})$:
+the numerator has weight $21$ and $s=2^{58}$, so character $\chi_{-4}$, and the
+denominator $\Delta(2\tau)\Delta(4\tau)$ has weight $24$ and trivial character.)
+Multiplying, $\Sh=-\frac i2gK$ has weight $-3+2=-1$ and character $\chi_{-4}$
+on $\Gamma_0(4)\subset\Gamma_0(2)$. This is the transformation law of
+\cref{thm:completion}. The same computation shows that $A=g\,\eta(2\tau)^3$ is
+a modular form of weight $-3/2$ (with the product of the two multipliers), and
+that $\fh=-\frac i2K/\eta(2\tau)^3$ transforms with weight $2-\frac32=\frac12$.
+
+\emph{Growth at the cusps.} The group $\Gamma_0(4)$ has three cusps, $\infty$,
+$0$ and $\frac12$; the cusp $\frac12$ is the image of $\infty$ under
+$\left(\begin{smallmatrix}1&0\\2&1\end{smallmatrix}\right)\in\Gamma_0(2)$, so for
+the $\Gamma_0(2)$-covariant function $\fh$ it suffices to look at $\infty$ and
+$0$. At $\infty$, $f=q^{3/4}(1+O(q))$ because $L(0)=\Theta(0)=1$, and the Gaussian
+decay of $1-|E|$ gives $R_0(\tau)=O(y^{-1/2}e^{-\pi y/2})$. For the cusp $0$, put
+$\tau=-1/(2z)$ with $z\in\HH$, $v=\Img z$ and $p=e^{2\pi iz}$. Zwegers' inversion
+law (\cref{fact:zwegers}(b) with $\gamma=\left(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\right)$)
+(where $\nu_\eta=e^{-\pi i/4}$, $w=-\frac12$), followed by \cref{fact:zwegers}(a)
+with $j=0$, $l=1$, gives
+\[
+\muh\Big(-\frac1{2z},-\frac1{2z};-\frac1z\Big)=e^{3\pi i/4}z^{1/2}\,\muh\big(\tfrac12,\tfrac12;z\big).
+\]
+From the definitions, $\vartheta(\frac12;z)=-2p^{1/8}(1+O(p))$ (the terms
+$\nu=\pm\frac12$ dominate), and
+\[
+\sum_{r\in\Z}\frac{p^{r(r+1)/2}}{1+p^r}=\frac12+O(p),
+\]
+since the term $r=0$ is $\frac12$ and the terms $r$ and $-r$ combine to
+$2p^{r(r+1)/2}/(1+p^r)$ for $r\ge1$. Hence
+$\mu(\frac12,\frac12;z)=-\frac i4p^{-1/8}(1+O(p))$, while
+$R(0;z)=O(v^{-1/2}e^{-\pi v/4})$. So $\fh$ grows at most exponentially at both
+cusps of $\Gamma_0(2)$. An eta quotient has finite exponential order at every
+cusp, so the same holds for $A$ and for $\Sh$. This completes the proof.
+\end{proof}
+
+\begin{remark}
+The shadow belongs to the weight-$1/2$ factor $\fh$, not to $\Sh$ itself. By
+\eqref{eq:dR},
+\[
+\xi_{-1}\Sh=-\frac{\overline{A(\tau)}}{2y^{3/2}}\,\eta(2\tau)^3,
+\]
+which is not holomorphic. So $\Sh$ is \emph{not} a harmonic Maass form of
+weight $-1$; it is the product of the harmonic Maass form $\fh$ with the
+modular form $A$, which is what ``mixed mock modular'' means.
+\end{remark}

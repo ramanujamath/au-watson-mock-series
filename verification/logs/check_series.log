@@ -1,0 +1,30 @@
+
+== The polynomial P(q,x) of (1.2)
+  [ok]   sum of coefficients c_j = 0, so P(1,1) = 0
+  [ok]   sum |c_j| u_j = 112
+  [ok]   sum |c_j| v_j = 416, where P_n(q) = sum c_j q^{u_j + v_j n} (so v_j = 2 deg_x)
+  [ok]   P_n'(1) = sum c_j(u_j + 2n v_j) = -20 + -168n, i.e. -P_n'(1) = 4(42n+5)
+
+== The two product forms of B_n and the value a_0
+  [ok]   B_n equals the even/odd separated form (4 rational q, 0 <= n < 8, exact)
+  [ok]   a_0 = (1-q^5)/((1+q)(1+q^2)^2)  (1.4)
+
+== Theorem 1.1 as a power series identity mod q^220
+  [info] S(q) = [1, -1, 0, -3, 8, -7, 4, -17, 40, -38, 28, -79] ...
+  [ok]   S(0) = 1
+  [ok]   L(0) = 1 (the apparent singularity at q = 0 is removable)
+  [ok]   S(q) = (q;q^2)_inf^2 / J_4^4 * L(q)  holds mod q^220
+
+== Bilateral rearrangements used in the proof of Theorem 1.1
+  [ok]   L(q) = sum_{r>=0} q^{4r(r+1)}/(1-q^{4r+1}) - sum_{r>=1} q^{4r^2-1}/(1-q^{4r-1})
+  [ok]   U(q) = -2 q L(q)
+  [ok]   sum_{r in Z} b_r = -U(q)/(q J_2)   (3.4 after reindexing)
+  [ok]   (3.4): sum_{j>=1} q^{2j}(q;Q)_j^2 + sum_{j>=0} q^{2j(j-1)}/(q;Q)_j^2 = -U/(qJ_2)
+
+== Corollary 3.2: S = J_2^6 E_21 / (2 J_1^2 J_4^4)
+  [ok]   2 J_1^2 J_4^4 S = J_2^6 E_21  mod q^220
+
+== Theorem 1.1 at complex q (direct summation vs closed form)
+  [ok]   5 complex points with |q| <= 0.6: max relative difference 4.1e-15
+
+-- check_series: 15 passed, 0 failed

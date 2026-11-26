@@ -1,0 +1,116 @@
+\section{The finite identity}\label{sec:finite}
+
+In this section and the next, $q$ is real with $0<q<1$; \cref{thm:main} is
+extended to complex $q$ at the end of \cref{sec:limit}. For an integer
+$n\ge1$ write $x=q^{2n}$ and define
+\begin{equation}\label{eq:f0}
+f_0(n)=\frac{q\,B_n\,(1-x^4)^3(x^2-qx+q^2)}{2(1+x^4)(x-q)^2(q^2+x^4)},
+\end{equation}
+and, for each integer $k\ge0$,
+\begin{equation}\label{eq:F}
+F(n,k)=f_0(n)\Big(\frac qx\Big)^k\,\frac{1+q^3Q^{2k}/x^3}{1+q^3/x^3}\,
+\frac{\poch{qx,\ Q/x^2,\ -Q/x^2,\ -Q/x^2}{Q}{k}}
+{\poch{q^3/x,\ q^3/x,\ -q^3/x,\ -q^4/x^4}{Q}{k}} .
+\end{equation}
+No denominator vanishes: $1-q^3Q^j/x=1-q^{3+2j-2n}$ has an odd exponent, and
+the other factors are of the form $1+(\text{positive})$. The factor
+$\poch{Q/x^2}{Q}{k}=\prod_{j<k}(1-q^{2j+2-4n})$ contains the factor
+$1-q^{0}=0$ (from $j=2n-1$) as soon as $k\ge2n$, so $F(n,k)=0$ for $k\ge2n$.
+Hence
+\[
+T_n=\sum_{k=0}^{2n-1}F(n,k)=\sum_{k\ge0}F(n,k)
+\]
+is a finite sum.
+
+\begin{lemma}\label{lem:telescope}
+For every integer $N\ge1$,
+\begin{equation}\label{eq:telescope}
+\sum_{n=0}^{N-1}a_n=-T_N .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Let $\cert(q,x,y)$ be the rational function defined in \cref{app:cert}, and
+put
+\[
+G(n,k)=\cert(q,q^{2n},q^{2k})\,F(n,k).
+\]
+The identities proved in \cref{app:cert} say exactly that
+\begin{equation}\label{eq:wz}
+F(n+1,k)-F(n,k)=G(n,k+1)-G(n,k),\qquad G(n,0)=a_n,
+\end{equation}
+so $(F,G)$ is a Wilf--Zeilberger pair. Two values of $k$ need care. As a
+function of $y=q^{2k}$, the certificate $\cert$ has denominator factors
+$x^2-y$ and $q^2x^2-y$, which vanish at $k=2n$ and $k=2n+1$; at exactly these
+$k$, the numerator of $F(n,k)$ contains the vanishing factor $1-Q^{2n}/x^2$.
+To give $G(n,2n)$ and $G(n,2n+1)$ a meaning, treat $x$ as a real variable near
+$q^{2n}$, so that both factors vanish to first order as $x\to q^{2n}$. (The
+factor $B_n$ is continued in $x$ by
+$\poch{a}{r}{z}=\poch{a}{r}{\infty}/\poch{ar^z}{r}{\infty}$, $r^z=e^{z\log r}$;
+it stays finite and nonzero.) The ratio of the two vanishing factors has a
+finite nonzero limit, and $G(n,k)$ is defined as the limit of the product.
+Every other denominator factor of $\cert$ is nonzero for $0<q<1$. Since
+\eqref{eq:wz} holds as an identity of analytic functions of $x$ away from these
+points, it continues to hold in the limit.
+
+For $k\ge2n+2$ the certificate is finite and $F(n,k)=0$, so $G(n,k)=0$.
+Summing \eqref{eq:wz} over $0\le k\le2n+1$, the right side telescopes to
+$G(n,2n+2)-G(n,0)=-a_n$, while the left side is $T_{n+1}-T_n$ (recall
+$F(n,2n)=F(n,2n+1)=0$). The two values $G(n,2n)$ and $G(n,2n+1)$ cancel inside
+the telescoping sum and are never set to zero. Thus $T_{n+1}-T_n=-a_n$ for
+$n\ge1$. Finally, direct substitution in \eqref{eq:F} gives
+$T_1=F(1,0)+F(1,1)=-(1-q^5)/[(1+q)(1+q^2)^2]=-a_0$ by \eqref{eq:a0}, and
+adding the recurrences gives \eqref{eq:telescope}.
+\end{proof}
+
+The finite sum $T_N$ is a terminating ${}_8\phi_7$, so Watson's transformation
+applies. For an integer $N\ge1$ put $x=q^{2N}$ and define
+\begin{align}
+C_N&=\frac{q^2\,x\,B_N\,(1-x^4)^3}{2(1+x^4)(x-q)^2(q^2+x^4)},\label{eq:CN}\\
+h_N(k)&=C_N\,Q^k\,
+\frac{\poch{Q/x^2}{Q}{k}^2\,\poch{-Q/x^2}{Q}{k}}
+{\poch{-Q^2/x^4}{Q}{k}\,\poch{q^3/x}{Q}{k}^2}\qquad(0\le k\le2N-1).\label{eq:hN}
+\end{align}
+
+\begin{lemma}\label{lem:watson}
+For every integer $N\ge1$,
+\begin{equation}\label{eq:watsonsum}
+\sum_{n=0}^{N-1}a_n=\sum_{k=0}^{2N-1}h_N(k),
+\end{equation}
+and every term $h_N(k)$ is nonnegative.
+\end{lemma}
+
+\begin{proof}
+Apply \cref{fact:watson} with $m=2N-1$ and
+\[
+a=-q^3/x^3,\qquad b=qx,\qquad c=e=-Q/x^2,\qquad d=Q .
+\]
+Then $Q^{-m}=Q/x^2$. On the left of \cref{fact:watson}, the parameter $a$
+cancels against $aQ/d=a$, and $d=Q$ cancels against the factor $\poch{Q}{Q}{k}$
+in the definition of ${}_8\phi_7$. The pair $\poch{\pm Q\sqrt a}{Q}{k}/\poch{\pm\sqrt a}{Q}{k}$
+equals $(1-aQ^{2k})/(1-a)=(1+q^3Q^{2k}/x^3)/(1+q^3/x^3)$, and the argument is
+$a^2Q^{m+2}/(bcde)=q/x$. Comparing with \eqref{eq:F}, the left side is
+$T_N/f_0(N)$. On the right, the prefactor is
+\[
+\begin{aligned}
+\frac{\poch{-q^5/x^3,\ q/x}{Q}{m}}{\poch{-q^3/x^3,\ q^3/x}{Q}{m}}
+&=\frac{1+q^3Q^m/x^3}{1+q^3/x^3}\cdot\frac{1-q/x}{1-qQ^m/x}
+=\frac{1+q/x}{1+q^3/x^3}\cdot\frac{1-q/x}{1-x/q}\\
+&=\frac{x^2}{x^2-qx+q^2}\Big(-\frac qx\Big)
+=-\frac{qx}{x^2-qx+q^2},
+\end{aligned}
+\]
+because each ratio telescopes to a single quotient, $Q^m=x^2/q^2$, and
+$x^3+q^3=(x+q)(x^2-qx+q^2)$.
+In the ${}_4\phi_3$, the parameter $d=Q$ again cancels $\poch{Q}{Q}{k}$. Writing
+out the remaining parameters $aQ/(bc)=Q/x^2$, $e=-Q/x^2$, $Q^{-m}=Q/x^2$,
+$aQ/b=-Q^2/x^4$, $aQ/c=q^3/x$ and $deQ^{-m}/a=q^3/x$,
+we find that $-f_0(N)$ times the prefactor times the $k$-th term of the
+${}_4\phi_3$ is exactly $h_N(k)$. Combining with \cref{lem:telescope} gives
+\eqref{eq:watsonsum}.
+
+For nonnegativity, note that in \eqref{eq:CN} and \eqref{eq:hN} the factors
+that could be negative, $\poch{Q/x^2}{Q}{k}$ and $\poch{q^3/x}{Q}{k}$, occur
+squared, and the latter is nonzero. Every other factor is positive when
+$0<q<1$ (note $1-x^4>0$).
+\end{proof}

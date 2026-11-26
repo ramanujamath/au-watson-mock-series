@@ -1,0 +1,25 @@
+
+== Lemma 3.1: the centred form of H_N (exact)
+  [ok]   H_N(N+r) = E_N b_r rho_{N,r} for 1<=N<=6, -N<=r<=N-1, five q
+  [ok]   b_{-N} = q^{2N-2}(q;Q)_{N-1}^2, rho_{N,-N} = 1, b_{-j-1} = q^{2j}(q;Q)_j^2 (negative-index convention)
+  [ok]   the two displayed successive ratios agree with each other and with H_N
+
+== Uniform bounds and limits used for dominated convergence (0<q<1)
+  [ok]   0 <= rho_{N,r} <= (-q^2;Q)_inf for N < 30 and q in {0.2,0.5,0.8,0.95}
+  [ok]   B_N -> (q;Q)^4 J_2/J_4^4, E_N -> B_inf/(2(q;Q)^2), b_r <= q^{2r(r+1)}/(q;Q)^2 (floats)
+  [ok]   (3.3): S(q) = (q;Q)^2 J_2/(2J_4^4) sum b_r at five real q, rel. diff 1.1e-15
+
+== Proposition 4.1: termwise limits
+  [ok]   lim B_n = (1/2)_n^3/(n!^3 64^n) and lim 8a_n/(1-q) = (1/2)_n^3 (42n+5)/(n!^3 64^n), n < 12
+  [ok]   B_{n+1}/B_n formula and the bound <= (1+q^{4n+4})^{-6} (exact, three q, n < 10)
+  [ok]   |P_n(q)|/(1-q) <= 112 + 416 n on a grid of 399 q in (0,1), n < 40
+
+== Proposition 4.1: the classical value and the limit itself
+  [ok]   (1.1): sum (1/2)_n^3 (42n+5)/(n!^3 64^n) = 16/pi to 50 digits
+  [info] h = 0.1: 8S(q)/(1-q) = 5.351849512481   (16/pi = 5.092958178941)
+  [info] h = 0.01: 8S(q)/(1-q) = 5.118465411083   (16/pi = 5.092958178941)
+  [info] h = 0.001: 8S(q)/(1-q) = 5.095505082443   (16/pi = 5.092958178941)
+  [info] h = 0.0001: 8S(q)/(1-q) = 5.093212831094   (16/pi = 5.092958178941)
+  [ok]   8S(e^-h)/(1-e^-h) -> 16/pi as h -> 0 (errors 2.6e-01, 2.6e-02, 2.5e-03, 2.5e-04)
+
+-- check_limits: 11 passed, 0 failed

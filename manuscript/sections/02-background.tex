@@ -1,0 +1,177 @@
+\section{Notation and background}\label{sec:background}
+
+We write $\Z$, $\R$, $\C$ for the integers, real numbers and complex numbers.
+The notation $f=O(g)$ near a stated limit means $|f|\le C|g|$ for some
+constant $C$ throughout a neighbourhood of that limit; $O_t$ means that $C$
+may depend on $t$.
+
+\subsection{Products and series in \texorpdfstring{$q$}{q}}
+The products $\poch{a}{r}{n}$ were defined in \cref{sec:series}. For a positive
+integer $j$ we also use the \emph{negative-index} convention
+\begin{equation}\label{eq:negindex}
+\poch{a}{r}{-j}=\frac{1}{\poch{ar^{-j}}{r}{j}},
+\end{equation}
+whenever the denominator is nonzero. It is chosen so that
+$\poch{a}{r}{m+n}=\poch{a}{r}{m}\poch{ar^m}{r}{n}$ holds for all integers
+$m,n$.
+
+\begin{fact}[even and odd factors]\label{fact:evenodd}
+For integers $m\ge0$,
+\[
+\poch{a}{r}{m}\,\poch{-a}{r}{m}=\poch{a^2}{r^2}{m},\qquad
+\poch{a}{r}{2m}=\poch{a}{r^2}{m}\,\poch{ar}{r^2}{m}.
+\]
+The first holds factor by factor since $(1-ar^j)(1+ar^j)=1-a^2r^{2j}$; the
+second splits $j$ into even and odd values.
+\end{fact}
+
+For $s\ge0$, parameters $a_0,\dots,a_s$, $b_1,\dots,b_s$ and argument $z$, the
+\emph{basic hypergeometric series} is
+\[
+{}_{s+1}\phi_s\!\left[\begin{matrix}a_0,\dots,a_s\\ b_1,\dots,b_s\end{matrix};Q,z\right]
+=\sum_{k\ge0}\frac{\poch{a_0,\dots,a_s}{Q}{k}}{\poch{Q,b_1,\dots,b_s}{Q}{k}}\,z^k,
+\]
+whenever the series terminates or converges and no denominator vanishes. If
+one numerator parameter equals $Q^{-m}$ for an integer $m\ge0$, every term
+with $k>m$ vanishes and the series \emph{terminates}.
+
+\begin{fact}[Watson's transformation {\cite[(17.9.15)]{DLMF}}]\label{fact:watson}
+For an integer $m\ge0$ and any choice of $\sqrt a$,
+\begin{multline*}
+{}_8\phi_7\!\left[\begin{matrix}a,\ Q\sqrt a,\ -Q\sqrt a,\ b,\ c,\ d,\ e,\ Q^{-m}\\
+\sqrt a,\ -\sqrt a,\ aQ/b,\ aQ/c,\ aQ/d,\ aQ/e,\ aQ^{m+1}\end{matrix};
+Q,\frac{a^2Q^{m+2}}{bcde}\right]\\
+=\frac{\poch{aQ,\ aQ/(de)}{Q}{m}}{\poch{aQ/d,\ aQ/e}{Q}{m}}\;
+{}_4\phi_3\!\left[\begin{matrix}aQ/(bc),\ d,\ e,\ Q^{-m}\\
+aQ/b,\ aQ/c,\ deQ^{-m}/a\end{matrix};Q,Q\right].
+\end{multline*}
+(The two parameters $\pm Q\sqrt a$ and $\pm\sqrt a$ occur in pairs, so the
+left side does not depend on the sign of $\sqrt a$.)
+\end{fact}
+
+\subsection{Wilf--Zeilberger pairs}\label{sec:wz}
+Two functions $F(n,k)$ and $G(n,k)$ of integers $n,k$ form a
+\emph{Wilf--Zeilberger pair} if
+\begin{equation}\label{eq:wzdef}
+F(n+1,k)-F(n,k)=G(n,k+1)-G(n,k).
+\end{equation}
+Summing \eqref{eq:wzdef} over a range of $k$ makes the right side telescope,
+so that $\sum_kF(n+1,k)-\sum_kF(n,k)$ is a difference of two boundary values of
+$G$. In practice $G=\cert\cdot F$ for a rational function $\cert$ of $q$,
+$q^{2n}$ and $q^{2k}$, called the \emph{certificate}. Dividing
+\eqref{eq:wzdef} by $F(n,k)$ turns it into an identity between rational
+functions, which can be checked by expanding polynomials; this is done in
+\cref{app:cert}.
+
+\subsection{Two classical identities}
+Put
+\[
+U(q)=\sum_{r\in\Z}\frac{(-1)^rq^{r^2}}{1-q^{2r-1}},\qquad
+\Theta(q)=\sum_{r\in\Z}(-1)^rq^{r^2}.
+\]
+
+\begin{fact}[a bilateral identity]\label{fact:LO}
+For $0<q<1$,
+\[
+\sum_{j\ge1}q^{2j}\poch{q}{Q}{j}^2+\sum_{j\ge0}\frac{q^{2j(j-1)}}{\poch{q}{Q}{j}^2}
+=-\frac{U(q)}{q\,J_2}.
+\]
+This is the three-term identity reproduced by Lovejoy and Osburn
+\cite[(3.11)]{LO}, with their base replaced by $Q$ and both of their parameters
+set equal to $-q$; in this specialization their product prefactor becomes
+$1/J_2$, and shifting their bilateral index by one produces the factor
+$-q^{-1}$.
+\end{fact}
+
+\begin{fact}[Jacobi]\label{fact:jacobi}
+$\Theta(q)=J_1^2/J_2$ (a case of the triple product identity), and
+\[
+\sum_{m\ge0}(-1)^m(2m+1)q^{m(m+1)}=J_2^3 .
+\]
+\end{fact}
+
+\subsection{Modular forms, mock modular forms and shadows}\label{sec:modular}
+Let $\HH=\{\tau\in\C:\Img\tau>0\}$. We write $\tau=u+iy$ with $u,y$ real and
+$y>0$, and $q=e^{2\pi i\tau}$; every fractional power $q^\alpha$ means
+$e^{2\pi i\alpha\tau}$. The \emph{Dedekind eta function} is
+$\eta(\tau)=q^{1/24}\prod_{j\ge1}(1-q^j)$; it has no zeros in $\HH$.
+
+The group $\mathrm{SL}_2(\Z)$ of integer $2\times2$ matrices of determinant
+$1$ acts on $\HH$ by $\gamma\tau=(a\tau+b)/(c\tau+d)$ for
+$\gamma=\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right)$. For a
+positive integer $M$,
+$\Gamma_0(M)=\{\gamma\in\mathrm{SL}_2(\Z):M\mid c\}$. The character
+$\chi_{-4}$ is defined by $\chi_{-4}(d)=0$ for even $d$ and
+$\chi_{-4}(d)=(-1)^{(d-1)/2}$ for odd $d$. A \emph{cusp} of $\Gamma_0(M)$ is
+an orbit of $\Gamma_0(M)$ on $\mathbb{Q}\cup\{\infty\}$; the behaviour of a
+function ``at a cusp'' is read off after moving the cusp to $\infty$ by an
+element of $\mathrm{SL}_2(\Z)$ and multiplying by the appropriate factor
+$(c\tau+d)^{-k}$.
+
+For a weight $k\in\R$ we use the operators
+\[
+\partial_{\bar\tau}=\tfrac12(\partial_u+i\partial_y),\qquad
+\xi_kh=2iy^k\,\overline{\partial_{\bar\tau}h},\qquad
+\Delta_k=-y^2(\partial_u^2+\partial_y^2)+iky(\partial_u+i\partial_y).
+\]
+A function $h$ is holomorphic exactly when $\partial_{\bar\tau}h=0$, and
+$\Delta_k=-\xi_{2-k}\xi_k$.
+
+A \emph{harmonic Maass form} of weight $k$ is a real-analytic function on $\HH$
+that transforms like a modular form of weight $k$ (with some multiplier),
+satisfies $\Delta_kh=0$, and grows at most exponentially at every cusp. Such
+an $h$ splits as a holomorphic part plus a non-holomorphic correction. The
+holomorphic part is called a \emph{mock modular form}; the function $h$ is its
+\emph{completion}; and $\xi_kh$, which is a holomorphic modular form of weight
+$2-k$, is its \emph{shadow}. A product of a mock modular form and a modular
+form (holomorphic on $\HH$, possibly with poles at the cusps) is called
+\emph{mixed mock modular}; its weight is the sum of the two weights.
+
+\begin{fact}[eta quotients {\cite[Proposition~2.5]{BS}}]\label{fact:etaquot}
+Let $g(\tau)=\prod_{\delta\mid M}\eta(\delta\tau)^{r_\delta}$ with integers
+$r_\delta$ whose sum $2k$ is even. If $\sum_\delta\delta r_\delta\equiv0$ and
+$\sum_\delta(M/\delta)r_\delta\equiv0\pmod{24}$, then for every
+$\gamma\in\Gamma_0(M)$,
+$g(\gamma\tau)=\chi(d)(c\tau+d)^kg(\tau)$ with
+$\chi(d)=\big(\frac{(-1)^ks}{d}\big)$, $s=\prod_\delta\delta^{r_\delta}$.
+\end{fact}
+
+The \emph{eta multiplier} $\nu_\eta(\gamma)$ is the root of unity defined by
+$\eta(\gamma\sigma)=\nu_\eta(\gamma)(c\sigma+d)^{1/2}\eta(\sigma)$ for
+$\gamma\in\mathrm{SL}_2(\Z)$, where the square root has argument in
+$(-\pi/2,\pi/2]$.
+
+\subsection{Zwegers' functions}\label{sec:zwegers}
+For $\sigma\in\HH$ let $\Lambda_\sigma=\Z\sigma+\Z$. Following
+\cite[\S1.3]{Zwegers}, for complex $v$ and $w$ put
+\[
+\vartheta(v;\sigma)=\sum_{\nu\in\Z+\frac12}e^{\pi i\nu^2\sigma+2\pi i\nu(v+\frac12)},
+\qquad
+\mu(w,v;\sigma)=\frac{e^{\pi iw}}{\vartheta(v;\sigma)}
+\sum_{r\in\Z}\frac{(-1)^re^{\pi i(r^2+r)\sigma+2\pi irv}}{1-e^{2\pi i(r\sigma+w)}},
+\]
+the second for $w,v\notin\Lambda_\sigma$ (the zeros of $\vartheta(\cdot;\sigma)$
+are exactly the points of $\Lambda_\sigma$). For real $t$ let
+$E(t)=2\int_0^te^{-\pi s^2}\,ds$, and for $\sigma\in\HH$ let
+\[
+R(0;\sigma)=\sum_{\nu\in\Z+\frac12}\big(\sgn\nu-E(\nu\sqrt{2\Img\sigma})\big)
+(-1)^{\nu-\frac12}e^{-\pi i\nu^2\sigma},
+\]
+where $\sgn t$ is $1$, $0$ or $-1$ as $t$ is positive, zero or negative. The
+\emph{diagonal completion} of $\mu$ is
+\[
+\muh(w,w;\sigma)=\mu(w,w;\sigma)+\tfrac{i}{2}R(0;\sigma).
+\]
+The function $\mu$ is holomorphic but not modular; adding the correction
+$\frac i2R$ restores modularity at the cost of holomorphy.
+
+\begin{fact}[{\cite[Theorem~1.11]{Zwegers}}]\label{fact:zwegers}
+For $\sigma\in\HH$ and $w\notin\Lambda_\sigma$:
+\begin{enumerate}[label=(\alph*)]
+\item $\muh(w+j\sigma+l,\,w+j\sigma+l;\sigma)=\muh(w,w;\sigma)$ for all integers
+$j,l$;
+\item $\muh\big(\tfrac{w}{c\sigma+d},\tfrac{w}{c\sigma+d};\gamma\sigma\big)
+=\nu_\eta(\gamma)^{-3}(c\sigma+d)^{1/2}\muh(w,w;\sigma)$ for every
+$\gamma\in\mathrm{SL}_2(\Z)$.
+\end{enumerate}
+\end{fact}

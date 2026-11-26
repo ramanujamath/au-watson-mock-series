@@ -1,0 +1,83 @@
+\section{The Wilf--Zeilberger certificate}\label{app:cert}
+
+In this appendix $q$, $x$ and $y$ are independent variables; in
+\cref{sec:finite} they are specialized to $q$, $x=q^{2n}$ and $y=q^{2k}=Q^k$.
+Define the polynomial
+\[
+\begin{aligned}
+D(q,x,y)={}&(x-1)^2(x+1)^2(x^2+1)(x^2-y)(x^2+y)^2\\
+&\times(qx+1)(q^2x^2+1)(q^2x^2-y)(q^2x^2+y)^2,
+\end{aligned}
+\]
+the rational function
+\[
+\Phi(q,x,y)=\frac{(x-qy)^2(x+qy)(q^2y+x^4)}{q\,y\,D(q,x,y)\,(q^3y^2+x^3)},
+\]
+and the polynomial $V(q,x,y)=\sum_{j=0}^5v_j(q,x)y^j$ with
+\[
+\begin{aligned}
+v_0={}&q^9x^{15},\\
+v_1={}&q^9x^{13}+q^8x^{14}-q^8x^{10}+q^7x^{13}+q^7x^{11}-q^7x^9+q^6x^{12}-q^6x^8\\
+&+q^5x^{11}-q^5x^9-q^4x^{10},\\
+v_2={}&q^8x^{10}-q^8x^8-q^7x^{13}+q^7x^{11}+q^6x^{10}-q^6x^6+q^5x^9-q^5x^5\\
+&+q^4x^8-2q^4x^6-q^2x^6,\\
+v_3={}&-q^7x^9-2q^5x^9+q^5x^7-q^4x^{10}+q^4x^6-q^3x^9+q^3x^5+q^2x^4\\
+&-q^2x^2-qx^7+qx^5,\\
+v_4={}&-q^5x^5-q^4x^6+q^4x^4-q^3x^7+q^3x^3-q^2x^6+q^2x^4+q^2x^2\\
+&-qx^5+qx+x^2,\\
+v_5={}&1.
+\end{aligned}
+\]
+The certificate is
+\[
+\cert(q,x,y)=x\,(y+1)\,V(q,x,y)\,\Phi(q,x,y).
+\]
+Define also
+\[
+\mathcal N(q,x,y)=(x^4+y)(qx-1)(q^2x^4+y)(q^3x^3+y^2)(q^4x^4+y)(qxy-1),
+\]
+and the two ratio functions
+\[
+r^{(n)}(q,x,y)=q^{-1}\mathcal N(q,x,y)\,\Phi(q,x,y),
+\]
+\[
+r^{(k)}(q,x,y)=\frac qx\cdot\frac{1+q^7y^2/x^3}{1+q^3y^2/x^3}\cdot
+\frac{(1-qxy)(1-q^2y/x^2)(1+q^2y/x^2)^2}{(1-q^3y/x)^2(1+q^3y/x)(1+q^4y/x^4)} .
+\]
+Clearing the inner fractions,
+\[
+r^{(k)}=\frac{q\,(x^3+q^7y^2)(1-qxy)(x^2-q^2y)(x^2+q^2y)^2}
+{(x^3+q^3y^2)(x-q^3y)^2(x+q^3y)(x^4+q^4y)},
+\]
+whose numerator and denominator have degree $6$ in $y$ and no common factor.
+
+\emph{Meaning of the ratios.} Cancelling the finite products in \eqref{eq:F}
+shows that $r^{(k)}=F(n,k+1)/F(n,k)$ after the substitution $x=q^{2n}$,
+$y=q^{2k}$. Similarly $r^{(n)}=F(n+1,k)/F(n,k)$. One way to see the latter is to
+check it at $y=1$, where it reduces to $f_0(n+1)/f_0(n)$, computed from
+\eqref{eq:f0} and the ratio $B_{n+1}/B_n$ of the products in \eqref{eq:Bn},
+and then use the compatibility identity
+\begin{equation}\label{eq:compat}
+r^{(n)}(q,x,y)\,r^{(k)}(q,q^2x,y)=r^{(k)}(q,x,y)\,r^{(n)}(q,x,q^2y),
+\end{equation}
+which expresses that the two ways of going from $F(n,k)$ to $F(n+1,k+1)$ agree.
+
+\emph{The certificate identity.} The identity
+\begin{equation}\label{eq:A1}
+r^{(k)}(q,x,y)\,\cert(q,x,q^2y)-\cert(q,x,y)=r^{(n)}(q,x,y)-1
+\end{equation}
+holds in the field of rational functions of $q,x,y$. Multiplying by the common
+denominator turns it into a polynomial identity, which is verified by
+expansion (after clearing denominators it has $7278$ monomials; see the
+verification scripts). Multiplying \eqref{eq:A1} by $F(n,k)$ and specializing
+gives the first identity in \eqref{eq:wz}.
+
+\emph{The boundary value.} The identity
+\[
+\cert(q,x,1)\cdot\frac{q(1-x^4)^3(x^2-qx+q^2)}{2(1+x^4)(x-q)^2(q^2+x^4)}
+=\frac{x\,P(q,x)}{(1+x^4)(1+qx)(1+q^2x^2)^3}
+\]
+is again verified by polynomial expansion. Multiplied by $B_n$ and specialized
+to $x=q^{2n}$ it says $G(n,0)=\cert(q,q^{2n},1)F(n,0)=a_n$, the second identity
+in \eqref{eq:wz}. The removable singularities that occur in the
+specialization were treated in the proof of \cref{lem:telescope}.

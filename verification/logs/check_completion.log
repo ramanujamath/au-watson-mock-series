@@ -1,0 +1,31 @@
+
+== Theta and mu at (tau; 2 tau), and S = A f
+  [ok]   theta(tau;2tau) = -i q^(-1/4) Theta(q)   [8.1e-16]
+  [ok]   Theta(q) = J_1^2/J_2   [1.3e-15]
+  [ok]   mu(tau,tau;2tau) = -i q^(-1/4) U/Theta = 2i q^(3/4) L/Theta   [6.6e-16]
+  [ok]   A = q^(-3/4) J_1^4/(J_2^3 J_4^4)   [8.1e-16]
+  [ok]   S(e^(2 pi i tau)) = A(tau) f(tau)   [1.2e-15]
+  [ok]   S^ = A f^ = S + A R(0;2tau)/4  (5.1)
+
+== Transformation laws
+  [ok]   (5.2) S^(g tau) = chi_-4(d)(c tau+d)^-1 S^(tau) for 11 elements of Gamma_0(4)   [3.9e-14]
+  [ok]   E_0 has weight -3 and character chi_-4 on Gamma_0(4)   [2.8e-14]
+  [ok]   K = eta(2tau)^3 mu^(tau,tau;2tau) has weight 2, trivial character on Gamma_0(2)   [6.4e-15]
+  [ok]   S^ = -i E_0 K/2 and A = E_0 eta(2tau)^3
+  [ok]   control: the uncompleted S does not satisfy (5.2)   [discrepancy 1.00]
+  [ok]   control: (5.2) fails for (1 0; 2 1), which lies in Gamma_0(2) but not Gamma_0(4)   [0.14]
+
+== Shadow
+  [ok]   Jacobi: sum_{l odd} (-1)^((l-1)/2) l q^(l^2/4) = 2 eta(2tau)^3  (exact mod q^400)
+  [ok]   d/d(tau-bar) R(0;2tau) = -(i/sqrt y) conj(eta(2tau)^3)  (5.4)   [3.2e-10]
+  [ok]   xi_(1/2) f^ = -eta(2tau)^3/2  (5.3)   [1.4e-08]
+  [ok]   xi_(-1) S^ = -conj(A) eta(2tau)^3/(2 y^(3/2)), not holomorphic   [1.8e-09]
+
+== Cusp estimates
+  [ok]   mu^(-1/(2z),-1/(2z);-1/z) = e^(3 pi i/4) z^(1/2) mu^(1/2,1/2;z)   [4.6e-15]
+  [ok]   theta(1/2;z) = -2p^(1/8)(1+O(p)) and mu(1/2,1/2;z) = -i p^(-1/8)(1+O(p))/4  (Im z = 2,4,6)
+  [ok]   R(0;z) = O(v^(-1/2) e^(-pi v/4)) and R(0;2tau) = O(y^(-1/2) e^(-pi y/2))
+  [ok]   the cusp 1/2 of Gamma_0(4) is the image of infinity under (1 0; 2 1) in Gamma_0(2)
+  [ok]   eta-quotient conditions for E_0: sum d r_d = -24, sum (4/d) r_d = 0, weight -3
+
+-- check_completion: 21 passed, 0 failed

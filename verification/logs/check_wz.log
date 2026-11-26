@@ -1,0 +1,31 @@
+
+== Appendix A: polynomial identities (exact expansion in Z[q,x,y])
+  [ok]   R(q,x,1) f0-factor = x P(q,x)/((1+x^4)(1+qx)(1+q^2x^2)^3)  (so G(n,0) = a_n)
+  [ok]   compatibility identity r^(n)(x,y) r^(k)(q^2x,y) = r^(k)(x,y) r^(n)(x,q^2y)
+  [ok]   certificate identity (A.1)  [7278 monomials after clearing denominators]
+  [ok]   negative control: changing one monomial of V breaks (A.1)
+  [info] polynomial expansion took 0.6s
+  [ok]   r^(k) has numerator and denominator degree 6 in y = Q^k
+  [ok]   the cleared form of r^(k) equals the displayed form (200 random rational points)
+  [ok]   the k-quotient is reduced (no common rational root in y at random q, x)
+
+== The ratios r^(k), r^(n) match F(n,k) (exact, x = q^{2n}, y = q^{2k})
+  [ok]   r^(k) = F(n,k+1)/F(n,k) for 1<=n<=4, 0<=k<2n-1, four values of q
+  [ok]   r^(n) = F(n+1,k)/F(n,k) for 1<=n<=4, 0<=k<2n, four values of q (incl. y=1)
+
+== Lemma 2.1 including the removable points k = 2n, 2n+1
+  [ok]   G(n,0) = a_n  (1<=n<=4, four q)
+  [ok]   F(n+1,k) - F(n,k) = G(n,k+1) - G(n,k) for all 0 <= k <= 2n+2, limits taken at k=2n,2n+1
+  [ok]   at k = 2n and 2n+1 exactly one factor (x - q^{2n}) cancels and G is finite and nonzero
+  [ok]   G(n,k) = 0 for k >= 2n+2
+  [ok]   T_1 = -a_0 and sum_{n<N} a_n = -T_N  (2.3) for 1<=N<=7, four q, exact
+
+== Watson's transformation (DLMF 17.9.15) and Lemma 2.2
+  [ok]   the terminating 8phi7 -> 4phi3 transformation holds at 26 random rational points
+  [ok]   with a=-q^3/x^3, b=qx, c=e=-Q/x^2, d=Q, m=2N-1 the 8phi7 equals T_N/f0(N)
+  [ok]   the product prefactor equals -qx/(x^2-qx+q^2)
+  [ok]   -f0(N) * prefactor * (k-th term of the 4phi3) = H_N(k) term by term
+  [ok]   (2.7): sum_{n<N} a_n = sum_{k<2N} H_N(k) for 1<=N<=7, six q, exact
+  [ok]   every H_N(k) is nonnegative for the five tested q in (0,1)
+
+-- check_wz: 20 passed, 0 failed

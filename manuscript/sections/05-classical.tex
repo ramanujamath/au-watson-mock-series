@@ -1,0 +1,71 @@
+\section{The classical limit}\label{sec:classical}
+
+This section proves \cref{prop:classical} directly from the definition of
+$S$, without using \cref{thm:main}. Throughout, $0<q<1$.
+
+\begin{proof}[Proof of \cref{prop:classical}]
+\emph{Termwise limits.} Write $P_n(q)=P(q,q^{2n})$. Expanding \eqref{eq:P} into
+monomials and setting $x=q^{2n}$ gives
+\begin{equation}\label{eq:Pn}
+P_n(q)=\sum_j\alpha_j\,q^{s_j+t_jn},
+\end{equation}
+with integer coefficients $\alpha_j$ and nonnegative integers $s_j,t_j$ ($t_j$
+is twice the power of $x$). Direct inspection of \eqref{eq:P} gives
+\[
+\sum_j\alpha_j=0,\qquad \sum_j\alpha_js_j=-20,\qquad\sum_j\alpha_jt_j=-168,
+\]
+so $P_n(1)=0$ and $-P_n'(1)=168n+20=4(42n+5)$. Hence
+$P_n(q)/(1-q)\to4(42n+5)$ as $q\to1$. Each factor $1-q^m$ in $B_n$ behaves like
+$m(1-q)$, and the numerator and denominator of $B_n$ contain $4n+2n$ and $6n$
+such factors respectively, while $\poch{-Q}{Q}{4n}\to2^{4n}$. Using
+$(2n)!=4^nn!\,(1/2)_n$ one obtains
+\[
+\lim_{q\to1}B_n=\frac{(1/2)_n^3}{(n!)^3\,64^n},\qquad
+\lim_{q\to1}\frac{8a_n}{1-q}=\frac{8\cdot4(42n+5)}{2\cdot2\cdot2^3}\,
+\frac{(1/2)_n^3}{(n!)^3\,64^n}=\frac{(1/2)_n^3}{(n!)^3\,64^n}(42n+5).
+\]
+
+\emph{A uniform bound.} We must justify summing these limits. Put
+$t=q^{2n}$. Cancelling common factors in \eqref{eq:Bn} gives
+\[
+\frac{B_{n+1}}{B_n}=\Big(\frac{1-qt}{1-q^2t}\Big)^3
+\frac{\prod_{j=1}^4(1+q^{2j}t^4)}{(1+qt)(1+q^2t)^3(1+q^2t^2)^3(1+q^4t^2)^3}
+\le(1+q^{4n+4})^{-6}.
+\]
+For the inequality: the first factor is at most $1$; the four numerator
+factors are at most $(1+qt)(1+q^2t)^3$ (because $q^2t^4\le qt$ and
+$q^{2j}t^4\le q^2t$); and each of the two remaining groups in the denominator
+is at least $(1+q^4t^2)^3=(1+q^{4n+4})^3$.
+
+Write $q=e^{-h}$ with $0<h<1$, let $m=\lfloor1/h\rfloor$ be the largest
+integer at most $1/h$, and let $\lambda=(1+e^{-4})^{-6}<1$. For $n\le m-1$ we
+have $(4n+4)h\le4$, hence $q^{4n+4}\ge e^{-4}$ and $B_{n+1}/B_n\le\lambda$.
+For larger $n$ the ratio is at most $1$. Since $B_0=1$,
+\[
+B_n\le\lambda^n\quad(0\le n\le m),\qquad B_n\le\lambda^m\quad(n>m).
+\]
+Next, $\sum_j\alpha_j=0$ lets us write $P_n(q)=-\sum_j\alpha_j(1-q^{s_j+t_jn})$,
+and $1-q^e\le e(1-q)$ for integers $e\ge0$. From \eqref{eq:P} one computes
+$\sum_j|\alpha_j|s_j=112$ and $\sum_j|\alpha_j|t_j=416$, so
+\[
+\frac{|P_n(q)|}{1-q}\le112+416n .
+\]
+The extra denominator factors of $a_n$ are at least $1$ and $q^{2n}\le1$.
+Therefore $|8a_n/(1-q)|\le8(112+416n)\lambda^n$ for $n\le m$, while
+\[
+\sum_{n>m}\Big|\frac{8a_n}{1-q}\Big|\le8\lambda^m\sum_{n>m}(112+416n)e^{-2hn}
+=O\big(h^{-2}\lambda^{\lfloor1/h\rfloor}\big),
+\]
+which tends to $0$ as $h\to0$.
+
+\emph{Conclusion.} On the range $n\le m$ the terms are dominated by the summable
+sequence $8(112+416n)\lambda^n$, which does not depend on $h$; so by dominated
+convergence that part of the sum tends to
+$\sum_n(1/2)_n^3(42n+5)/((n!)^364^n)$. The remaining part tends to $0$. By
+\eqref{eq:classical} the limit is $16/\pi$.
+\end{proof}
+
+\begin{remark}
+Numerically, $8S(e^{-h})/(1-e^{-h})-16/\pi$ is about $2.5h$ for small $h$; for
+example it equals $2.5\times10^{-4}$ (to two digits) at $h=10^{-4}$.
+\end{remark}

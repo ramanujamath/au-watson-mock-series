@@ -1,0 +1,72 @@
+\section{Comparison with Campbell's \texorpdfstring{$q$}{q}-analogue}\label{sec:campbell}
+
+Campbell \cite[Theorem~2]{Campbell1} gives another $q$-analogue of
+\eqref{eq:classical}. We show that its summand is an elementary multiple of
+the summand of Au's Example~III, which is a modular (not mock modular)
+evaluation. For each integer $n\ge0$ put
+\[
+w_n=1+3q^{2n+1}+3q^{4n+2}-2q^{6n+1}+q^{6n+3}-3q^{8n+2}-3q^{10n+3},
+\qquad
+u_n=\frac{q^{6n^2}\,w_n\,\poch{q}{q^2}{n}^6}{(1+q^{2n+1})^3\,\poch{q^2}{q^2}{2n}^3}.
+\]
+The term $u_n$ is the summand of Au's Example~III. In this section only, let
+$c_n$ denote Campbell's summand,
+\[
+c_n=\frac{(-1)^nq^{(n-1)(3n+5)}\poch{q}{q^2}{n}^4\poch{q^3}{q^2}{n}}
+{\poch{-q^2}{q^2}{n}^2\poch{q^2}{q^2}{n}^3\poch{q^{3-4n}}{q^2}{n}\poch{q^{2n+2}}{q^2}{n}}
+\cdot\frac{\poch{q^{-1},q}{q^4}{n}}{\poch{q^2,q^6}{q^4}{n}}
+\cdot\frac{-(1-q^{2n-1})\,w_n}{(1+q^{2n+1})^2}.
+\]
+
+\begin{proposition}\label{prop:campbell}
+For $0<|q|<1$ and every integer $n\ge0$,
+\[
+c_n=\frac{1-q^2}{q^6}\,u_n .
+\]
+\end{proposition}
+
+\begin{proof}
+Reversing the order of the factors in the product with negative exponents,
+\[
+\poch{q^{3-4n}}{q^2}{n}=(-1)^nq^{-3n^2+2n}\poch{q^{2n-1}}{q^2}{n}.
+\]
+Separating even and odd factors (\cref{fact:evenodd}),
+\[
+\poch{q^{-1}}{q^4}{n}\poch{q}{q^4}{n}=\poch{q^{-1}}{q^2}{2n},\qquad
+\frac{(1-q^{2n-1})\poch{q^{-1}}{q^2}{2n}}{\poch{q^{2n-1}}{q^2}{n}}=(1-q^{-1})\poch{q}{q^2}{n}.
+\]
+The remaining cancellations use
+\[
+\poch{-q^2}{q^2}{n}\poch{q^2}{q^2}{n}=\poch{q^4}{q^4}{n},\qquad
+\poch{q^2}{q^4}{n}\poch{q^4}{q^4}{n}=\poch{q^2}{q^2}{2n},
+\]
+\[
+\frac{\poch{q^3}{q^2}{n}}{\poch{q}{q^2}{n}}=\frac{1-q^{2n+1}}{1-q},\qquad
+\frac{\poch{q^6}{q^4}{n}}{\poch{q^2}{q^4}{n}}=\frac{1-q^{4n+2}}{1-q^2}.
+\]
+Substituting all of these into $c_n$ leaves $(1-q^2)u_n/q^6$. For $n=0$ all
+products are empty and the identity is checked directly.
+\end{proof}
+
+Let $F_C$ and $G_C$ be the Wilf--Zeilberger pair used by Campbell
+\cite[(41)--(43)]{Campbell1}. He obtains $c_n$ by forming
+$F_C(n+1,n+k)+G_C(n,n+k)$ and replacing $q$ by $q^2$. So
+\cref{prop:campbell} identifies the transformed summand itself, not only its
+classical limit: Campbell's series is, up to the factor $(1-q^2)/q^6$, Au's
+modular Example~III, and not the mock modular Watson series studied here.
+
+Campbell's later multiparameter construction \cite[\S4.4, (32)]{Campbell2}
+uses, with its base renamed $Q$, the kernel
+\[
+M_C(n,k)=Q^k\frac{\poch{Q^{n+\alpha},Q^{n+\beta}}{Q}{k}}{\poch{Q^{2n+\gamma},Q^{2n+\delta}}{Q}{k}},
+\]
+with complex parameters $\alpha,\beta,\gamma,\delta$ (for $0<q<1$ interpret
+$Q^\alpha=e^{\alpha\log Q}$). Its ratio $M_C(n,k+1)/M_C(n,k)$ is a rational
+function of $Q^k$ whose numerator and denominator have degree at most $2$. For
+our kernel \eqref{eq:F}, the ratio $F(n,k+1)/F(n,k)$ is the function
+$r^{(k)}$ of \cref{app:cert}; in lowest terms its numerator and denominator
+both have degree $6$ in $Q^k$. Multiplying a kernel by a factor depending only
+on $n$ does not change this ratio, and specializing the parameters cannot raise
+its degree from $2$ to $6$, so the two kernels are not related in this simple way (with the same
+base and index). This does not exclude more elaborate transformations
+between the two sums.

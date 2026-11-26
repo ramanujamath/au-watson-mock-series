@@ -1,0 +1,11 @@
+
+== Proposition 6.1: c_n = (1-q^2) u_n / q^6
+  [ok]   c_n = (1-q^2) u_n/q^6 for 0 <= n < 12 and six rational q (exact)
+
+== The product identities used in the proof
+  [ok]   the seven displayed product identities hold for 0 <= n < 10, six q (exact)
+
+== Classical limit of Au's Example III summand
+  [ok]   8 u_n/(1-q) -> (1/2)_n^3 (42n+5)/(n!^3 64^n) as q -> 1 (exact termwise limit, n < 12)
+
+-- check_campbell: 3 passed, 0 failed

@@ -1,0 +1,155 @@
+\section{Introduction}\label{sec:intro}
+
+In 1914 Ramanujan listed seventeen rapidly converging series for $1/\pi$.
+One of them is
+\begin{equation}\label{eq:classical}
+\sum_{n=0}^{\infty}\frac{(1/2)_n^3}{(n!)^3\,64^n}\,(42n+5)=\frac{16}{\pi},
+\end{equation}
+where $(a)_0=1$ and $(a)_n=a(a+1)\cdots(a+n-1)$ for $n\ge1$; this is recorded
+as \cite[(1.3)]{Au}. A \emph{$q$-analogue} of such a formula is a series in an
+extra variable $q$ whose terms tend, after a suitable normalization, to the
+terms of the classical series as $q\to1$, and which can itself be summed in
+closed form.
+
+Au \cite{Au} found a systematic way to produce $q$-analogues. He starts from a
+\emph{Wilf--Zeilberger seed}, a hypergeometric expression from which a whole
+family of Wilf--Zeilberger pairs (see \cref{sec:wz}) can be generated. Many of
+his $q$-analogues evaluate to infinite products, which are modular forms. Some
+evaluate instead to \emph{mock} modular forms, functions that are modular only
+after a non-holomorphic correction term is added (see \cref{sec:modular}).
+After his Example~XXI, Au writes down a further $q$-analogue of
+\eqref{eq:classical}, built from a seed related to Watson's transformation,
+and asks whether it too is mock modular \cite[remark after Example~XXI]{Au}.
+This paper answers that question. We evaluate the series in closed form,
+identify its mock modular part with the one already present in Example~XXI,
+give the completion explicitly, and verify the classical limit.
+
+\subsection{The series}\label{sec:series}
+For a complex number $a$, a base $r$ with $0<|r|<1$ and an integer $n\ge0$,
+put
+\[
+\poch{a}{r}{n}=\prod_{j=0}^{n-1}(1-ar^j),\qquad
+\poch{a}{r}{\infty}=\prod_{j=0}^{\infty}(1-ar^j),
+\]
+with the empty product equal to $1$. For several parameters we write
+$\poch{a_1,\dots,a_s}{r}{n}=\prod_{j}\poch{a_j}{r}{n}$. Throughout, $q$ is a
+complex number with $0<|q|<1$, and we use the abbreviations
+\[
+Q=q^2,\qquad J_d=\poch{q^d}{q^d}{\infty}\quad(d=1,2,3,\dots).
+\]
+Let $P(q,x)$ be the polynomial
+\begin{equation}\label{eq:P}
+\begin{aligned}
+P(q,x)={}&1+qx+(1+q^2)x^2+2q^3x^3+(3q^2+2q^4)x^4+q^3x^5\\
+&+(-2q^2+q^4+q^6)x^6+(-q-q^3+2q^5)x^7-q^4x^8\\
+&-(2q^3+3q^5)x^9-2q^4x^{10}-(q^5+q^7)x^{11}-q^6x^{12}-q^7x^{13}.
+\end{aligned}
+\end{equation}
+For each integer $n\ge0$ set
+\begin{equation}\label{eq:Bn}
+B_n=\frac{\poch{q}{Q}{n}^4\,\poch{Q}{Q^2}{n}^2\,\poch{-Q}{Q}{4n}}
+{\poch{Q^2}{Q^2}{2n}^3},\qquad
+a_n=\frac{q^{2n}\,P(q,q^{2n})\,B_n}
+{(1+q^{8n})(1+q^{2n+1})(1+q^{4n+2})^3},
+\end{equation}
+and let
+\[
+S(q)=\sum_{n=0}^{\infty}a_n .
+\]
+Separating even and odd factors (\cref{fact:evenodd}) shows that $B_n$ can also be
+written as
+\[
+B_n=\frac{\poch{q}{q^2}{n}^4\,\poch{q^2}{q^2}{2n}\,\poch{q^2}{q^4}{n}\,
+\poch{q^4}{q^4}{4n}}
+{\poch{q^2}{q^2}{4n}\,\poch{q^4}{q^4}{n}\,\poch{q^4}{q^4}{2n}^3},
+\]
+which is the form in which Au writes the summand. The first term is
+\begin{equation}\label{eq:a0}
+a_0=\frac{1-q^5}{(1+q)(1+q^2)^2}.
+\end{equation}
+
+\subsection{Results}
+The main result evaluates $S(q)$.
+
+\begin{theorem}\label{thm:main}
+For every complex $q$ with $0<|q|<1$ the series $S(q)$ converges absolutely,
+and
+\begin{equation}\label{eq:main}
+S(q)=\frac{\poch{q}{q^2}{\infty}^2}{J_4^4}\,L(q),\qquad
+L(q)=\sum_{r\in\Z}\frac{q^{4r(r+1)}}{1-q^{4r+1}}.
+\end{equation}
+Both sides extend holomorphically to $q=0$, where they equal $1$.
+\end{theorem}
+
+The bilateral series $L(q)$ is the source of mock modularity. Since $L$ also
+appears in Au's evaluation of Example~XXI, the two $q$-series are related by an
+infinite product (\cref{cor:XXI}).
+
+The next result confirms that $S$ is a $q$-analogue of \eqref{eq:classical};
+its proof does not use \cref{thm:main}.
+
+\begin{proposition}\label{prop:classical}
+As $q\to1$ through real values $0<q<1$,
+\[
+\frac{8\,S(q)}{1-q}\longrightarrow\frac{16}{\pi}.
+\]
+\end{proposition}
+
+Finally, write $q=e^{2\pi i\tau}$ with $\tau$ in the upper half-plane $\HH$.
+In \cref{sec:completion} we define an eta quotient $A(\tau)$ of weight $-3/2$,
+a function $f(\tau)$ built from Zwegers' $\mu$-function, its completion
+$\fh(\tau)=f(\tau)+\frac14R_0(\tau)$ (where $R_0$ is an explicit
+non-holomorphic function), and the product $\Sh=A\fh$.
+
+\begin{theorem}\label{thm:completion}
+For every $\tau\in\HH$ we have $S(e^{2\pi i\tau})=A(\tau)f(\tau)$. The completed
+function $\Sh=A\fh$ satisfies
+\[
+\Sh\Big(\frac{a\tau+b}{c\tau+d}\Big)=\chi_{-4}(d)\,(c\tau+d)^{-1}\,\Sh(\tau)
+\qquad\text{for every }\begin{pmatrix}a&b\\c&d\end{pmatrix}\in\Gamma_0(4),
+\]
+and the weight-$1/2$ factor $\fh$ is a harmonic Maass form with shadow
+\[
+\xi_{1/2}\fh=-\tfrac12\,\eta(2\tau)^3 .
+\]
+In particular $S$ is a mixed mock modular form of weight $-1$.
+\end{theorem}
+
+All terms used here ($\Gamma_0(4)$, $\chi_{-4}$, $\xi_k$, harmonic Maass form,
+shadow, mixed mock modular form) are defined in \cref{sec:modular}.
+
+\subsection{How the proof works}
+The evaluation proceeds in five steps, each short once the right object is
+written down.
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{A finite identity} (\cref{lem:telescope}). We give a two-variable
+term $F(n,k)$ and an explicit rational function, the \emph{certificate},
+that together form a Wilf--Zeilberger pair. Summing the pair over $k$ shows
+that the partial sum $a_0+\dots+a_{N-1}$ equals minus a finite sum $T_N$ of
+$2N$ terms.
+\item \emph{Watson's transformation} (\cref{lem:watson}). The finite sum $T_N$ is a
+terminating very-well-poised series, and Watson's transformation rewrites it as
+a sum of $2N$ terms $h_N(k)$ that are all nonnegative when $0<q<1$.
+\item \emph{A centred limit} (\cref{lem:centre}). Writing $k=N+r$ and letting
+$N\to\infty$, each $h_N(N+r)$ tends to a constant multiple of an explicit term
+$b_r$. A bound that does not depend on $N$ justifies exchanging limit and sum.
+The result expresses $S(q)$ through the two-sided series $\sum_{r\in\Z}b_r$.
+\item \emph{A classical identity} turns $\sum_r b_r$ into the Lambert series
+$L(q)$, which proves \cref{thm:main} for $0<q<1$; analytic continuation
+gives all $|q|<1$.
+\item \emph{Zwegers' theory.} The quotient of $L(q)$ by a theta function is a
+special value of Zwegers' $\mu$-function, whose completion and transformation
+laws are known. This gives \cref{thm:completion}.
+\end{enumerate}
+\Cref{prop:classical} is proved separately in \cref{sec:classical} by taking
+termwise limits under a uniform bound. \Cref{sec:campbell} compares the
+summand with the one in Campbell's $q$-analogue of \eqref{eq:classical}.
+
+\subsection{Computer verification}
+Every identity in this paper was checked by computer, using exact rational
+arithmetic wherever possible: \cref{thm:main} and \cref{cor:XXI} as
+power-series identities modulo $q^{220}$; the certificate identity of
+\cref{app:cert} by full polynomial expansion; \cref{lem:telescope,lem:watson,lem:centre}
+at many rational values of $q$; and the transformation law and shadow of
+\cref{thm:completion} numerically. The scripts are available at
+\url{https://github.com/ramanujamath/au-watson-mock-series}.

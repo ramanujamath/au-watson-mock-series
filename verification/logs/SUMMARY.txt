@@ -1,0 +1,6 @@
+-- check_series: 15 passed, 0 failed   [1.4s]
+-- check_wz: 20 passed, 0 failed   [4.2s]
+-- check_limits: 11 passed, 0 failed   [11.8s]
+-- check_completion: 21 passed, 0 failed   [0.0s]
+-- check_campbell: 3 passed, 0 failed   [0.1s]
+ALL PASSED

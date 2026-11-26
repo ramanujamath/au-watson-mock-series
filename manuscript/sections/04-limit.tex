@@ -1,0 +1,139 @@
+\section{The centred limit and the proof of \texorpdfstring{\cref{thm:main}}{Theorem 1.1}}\label{sec:limit}
+
+We keep $0<q<1$. The terms $h_N(k)$ are largest near the middle $k\approx N$ of
+their range, so we re-index around it. For every integer $r$ put
+\begin{equation}\label{eq:br}
+b_r=\frac{q^{2r(r+1)}}{\poch{q}{Q}{r+1}^2},
+\end{equation}
+using the negative-index convention \eqref{eq:negindex} when $r+1<0$. Unwinding
+that convention gives, for $j\ge0$,
+\begin{equation}\label{eq:bneg}
+b_{-j-1}=q^{2j}\,\poch{q}{Q}{j}^2 .
+\end{equation}
+For integers $N\ge1$ and $-N\le r\le N-1$ define
+\begin{equation}\label{eq:kappa}
+\kappa_N=\frac{C_N\,q^{2-2N}}{\poch{q}{Q}{N-1}^2},\qquad
+\rho_{N,r}=\frac{\poch{q^{2N-2r}}{Q}{N+r}^2\,\poch{-q^{2N-2r}}{Q}{N+r}}
+{\poch{-q^{6N-2r-2}}{Q}{N+r}} .
+\end{equation}
+
+\begin{lemma}\label{lem:centre}
+For $N\ge1$ and $-N\le r\le N-1$,
+\begin{equation}\label{eq:centre}
+h_N(N+r)=\kappa_N\,b_r\,\rho_{N,r}.
+\end{equation}
+Moreover,
+\begin{equation}\label{eq:Sb}
+S(q)=\frac{\poch{q}{Q}{\infty}^2J_2}{2J_4^4}\sum_{r\in\Z}b_r .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\emph{The identity \eqref{eq:centre}.} At $r=-N$ the left side is
+$h_N(0)=C_N$. On the right, $\rho_{N,-N}=1$ (all its products are empty) and
+$b_{-N}=q^{2N-2}\poch{q}{Q}{N-1}^2$ by \eqref{eq:bneg}, so the right side is
+also $C_N$. It remains to compare the ratios of consecutive terms. Put
+$x=q^{2N}$ and $v=q^{2r}$. From \eqref{eq:hN},
+\[
+\frac{h_N(N+r+1)}{h_N(N+r)}=\frac{Q(1-Qv/x)^2(1+Qv/x)}{(1+Q^2v/x^3)(1-q^3v)^2},
+\]
+and from \eqref{eq:br} and \eqref{eq:kappa},
+\[
+\frac{b_{r+1}\rho_{N,r+1}}{b_r\rho_{N,r}}
+=\frac{Q^2v^2}{(1-q^3v)^2}\cdot\frac{(1-x/(Qv))^2(1+x/(Qv))}{1+x^3/(Q^2v)} .
+\]
+After the inner fractions are cleared, both ratios equal
+\[
+\frac{Q\,(x-Qv)^2(x+Qv)}{(x^3+Q^2v)(1-q^3v)^2},
+\]
+and induction on $r$ gives \eqref{eq:centre}.
+
+\emph{Bounds.} For each fixed $r$, the first arguments $\pm q^{2N-2r}$ and
+$-q^{6N-2r-2}$ in \eqref{eq:kappa} tend to $0$ as $N\to\infty$, so
+$\rho_{N,r}\to1$. Uniformly in $-N\le r\le N-1$,
+\[
+0\le\rho_{N,r}\le\poch{-q^2}{Q}{\infty},
+\]
+because $2N-2r\ge2$, the factors $1-q^{2N-2r}Q^j$ lie in $(0,1]$, the factors
+$1+q^{2N-2r}Q^j$ are at most $1+q^2Q^j$, and the denominator factors are at
+least $1$. Next let $B_\infty=\lim_{N\to\infty}B_N$. Letting $N\to\infty$ in
+\eqref{eq:Bn} and using $\poch{Q}{Q^2}{\infty}=J_2/J_4$ and
+$\poch{-Q}{Q}{\infty}=J_4/J_2$,
+\[
+B_\infty=\frac{\poch{q}{Q}{\infty}^4J_2}{J_4^4},\qquad
+\kappa_N\longrightarrow\frac{B_\infty}{2\poch{q}{Q}{\infty}^2};
+\]
+for the second limit note that $C_N\sim xB_N/(2q^2)$ as $x=q^{2N}\to0$. In
+particular $(\kappa_N)_{N\ge1}$ is bounded. Finally, $b_r\le
+q^{2r(r+1)}/\poch{q}{Q}{\infty}^2$ for $r\ge0$, and $b_{-j-1}\le q^{2j}$ for
+$j\ge0$ by \eqref{eq:bneg}; so $\sum_r b_r$ converges absolutely.
+
+\emph{The limit.} Extend $r\mapsto h_N(N+r)$ by zero outside
+$-N\le r\le N-1$. The bounds just proved give
+$0\le h_N(N+r)\le(\sup_M\kappa_M)\,\poch{-q^2}{Q}{\infty}\,b_r$, a summable
+majorant that does not depend on $N$. By \cref{lem:watson} and dominated
+convergence,
+\[
+S(q)=\lim_{N\to\infty}\sum_{r}h_N(N+r)=\frac{B_\infty}{2\poch{q}{Q}{\infty}^2}\sum_{r\in\Z}b_r,
+\]
+which is \eqref{eq:Sb}.
+\end{proof}
+
+\begin{proof}[Proof of \cref{thm:main}]
+\emph{Real $q$.} Let $0<q<1$. By \eqref{eq:bneg}, the first sum in
+\cref{fact:LO} is $\sum_{r\le-2}b_r=\sum_{r<0}b_r-1$, and after the shift
+$j=r+1$ the second sum is $1+\sum_{r\ge0}b_r$. Hence \cref{fact:LO} says
+\begin{equation}\label{eq:bU}
+\sum_{r\in\Z}b_r=-\frac{U(q)}{qJ_2}.
+\end{equation}
+Next split $U(q)$ by the parity of $r$. The odd terms $r=2s+1$ give
+$-q^{4s^2+4s+1}/(1-q^{4s+1})$. In the even terms $r=2s$ replace $s$ by $-s$;
+since $1/(1-q^{-4s-1})=-q^{4s+1}/(1-q^{4s+1})$, they give the same expression.
+Therefore
+\begin{equation}\label{eq:UL}
+U(q)=-2q\sum_{s\in\Z}\frac{q^{4s(s+1)}}{1-q^{4s+1}}=-2qL(q).
+\end{equation}
+All rearrangements are allowed because the series converge absolutely.
+Substituting \eqref{eq:bU} and \eqref{eq:UL} in \eqref{eq:Sb} gives
+$S(q)=\poch{q}{Q}{\infty}^2L(q)/J_4^4$, which is \eqref{eq:main}.
+
+\emph{Complex $q$.} Fix $0<t<1$. On the disc $|q|\le t$, each finite product in
+$B_n$ is bounded in absolute value by a constant independent of $n$ (for
+example $|\poch{q}{Q}{n}|\le\poch{-t}{t^2}{\infty}$), and each denominator
+factor is bounded away from zero (for example
+$|\poch{Q^2}{Q^2}{2n}|\ge\poch{t^4}{t^4}{\infty}$). The same holds for the extra
+factors $1+q^{8n}$, $1+q^{2n+1}$, $1+q^{4n+2}$ in $a_n$, and $|P(q,q^{2n})|$ is
+bounded. Hence $a_n=O_t(t^{2n})$, and $S$ converges absolutely and locally
+uniformly on the unit disc. For the right side, rewrite the terms with $r<0$
+of $L$ as in \eqref{eq:UL}:
+\[
+L(q)=\sum_{r\ge0}\frac{q^{4r(r+1)}}{1-q^{4r+1}}-\sum_{r\ge1}\frac{q^{4r^2-1}}{1-q^{4r-1}} .
+\]
+This form converges locally uniformly on the unit disc and shows that $L$ is
+holomorphic there, including at $q=0$, with $L(0)=1$; the products
+$\poch{q}{q^2}{\infty}$ and $J_4$ are holomorphic and nonzero there. Both sides of
+\eqref{eq:main} are therefore holomorphic on the unit disc and agree on
+$(0,1)$, so they agree everywhere by the identity theorem. Finally $S(0)=a_0(0)=1$
+by \eqref{eq:a0}.
+\end{proof}
+
+\subsection*{Relation with Au's Example~XXI}
+Let $\SXXI(q)$ be the series on the left of \cite[(3.13)]{Au}, whose summand is
+\[
+\frac{q^{2n}\poch{q}{Q}{n}^6}{(1+q^{2n+1})^3\poch{Q}{Q}{2n}^3}
+\big(3+3q^{2n+1}-q^{4n}+2q^{4n+2}-3q^{6n+1}-3q^{8n+2}-q^{10n+3}\big).
+\]
+Au evaluated $\SXXI$ in \cite[(3.13)]{Au}; rewritten with \eqref{eq:UL} in the
+present notation, that evaluation reads $\SXXI(q)=2J_1^4L(q)/J_2^8$. (We have
+also confirmed this identity directly, as a power series modulo $q^{220}$.) Since $\poch{q}{Q}{\infty}=J_1/J_2$, comparing with
+\cref{thm:main} gives the following.
+
+\begin{corollary}\label{cor:XXI}
+For $0<|q|<1$,
+\[
+S(q)=\frac{J_2^6}{2J_1^2J_4^4}\,\SXXI(q).
+\]
+\end{corollary}
+
+Thus the Watson series and Example~XXI share the same mock modular part
+$L(q)$; they differ by an infinite product, that is, by a modular form.
